@@ -16,23 +16,64 @@ namespace MegaDesk_Porter
         public AddQuote()
         {
             InitializeComponent();
-            CmbSurfaceMaterial.DataSource = Enum.GetValues(typeof(DesktopMaterial));
+            List<DesktopMaterial> materials = Enum.GetValues(typeof(DesktopMaterial))
+                .Cast<DesktopMaterial>()
+                .ToList();
+
+            List<Delivery> rushorder = Enum.GetValues(typeof(Delivery))
+                .Cast<Delivery>()
+                .ToList();
+
+            CmbSurfaceMaterial.DataSource = materials;
+            CmbDelivery.DataSource = rushorder;
         }
 
-        private void CmbSurfaceMaterial_SelectedIndexChanged(object sender, EventArgs e)
+        public void BtnGetQuote_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void BtnGetQuote_Click(object sender, EventArgs e)
-        {
-
             String DeliveryTest = CmbDelivery.Text;
-            Console.WriteLine(DeliveryTest);
+            String NameTest = TxtCustomerName.Text;
+
             if (DeliveryTest == "")
             {
                 MessageBox.Show("Please select a shipping option");
+                
             }
+
+            else if (NameTest == "") {
+                    MessageBox.Show("Please enter something in the Customer Name field");
+                }
+            
+            else {
+
+                var desk = new Desk
+                {
+                    Depth = NumDepth.Value,
+                    Width = NumWidth.Value,
+                    Drawers = (int)NumDrawers.Value,
+                    DesktopMaterial = (DesktopMaterial)CmbSurfaceMaterial.SelectedValue
+
+                };
+
+                var deskQuote = new DeskQuote
+                {
+                    Desk = desk,
+                    CustomerName = TxtCustomerName.Text,
+                    QuoteDate = DateTime.Now,
+                    Shipping = (Delivery)CmbDelivery.SelectedValue
+                };
+
+                var displayQuote = new DisplayQuote();
+                
+                var price = deskQuote.GetQuote();
+
+                this.Close();
+
+                displayQuote. = NumDepth.Value;
+                displayQuote.Show();
+                
+                
+            }
+            
 
             try
             {
@@ -43,6 +84,7 @@ namespace MegaDesk_Porter
             {
                 Console.WriteLine(x.Message);
             }
+
     }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -55,6 +97,11 @@ namespace MegaDesk_Porter
         {
             MainMenu reopen = new MainMenu();
             reopen.Show();
+
+        }
+
+        private void AddQuote_Load(object sender, EventArgs e)
+        {
 
         }
     }

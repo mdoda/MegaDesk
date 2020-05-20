@@ -22,5 +22,10 @@ namespace MegaDesk_Porter
             MainMenu reopen = new MainMenu();
             reopen.Show();
         }
+
+        private void DisplayQuote_Load(object sender, EventArgs e)
+        {
+            TxtCustomerName = AddQuote.ActiveForm.
+        }
     }
 }

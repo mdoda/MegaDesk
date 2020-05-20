@@ -14,11 +14,7 @@ namespace MegaDesk_Porter
         Veneer,
         Pine
     }
-    public enum Delivery
-    {
-        
 
-    }
     public class Desk
     {
 
@@ -32,6 +28,8 @@ namespace MegaDesk_Porter
         public decimal Depth { get; set; }
 
         public decimal Width { get; set; }
+
+        public int Drawers { get; set; }
 
         public DesktopMaterial DesktopMaterial { get; set; }
 

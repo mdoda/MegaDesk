@@ -36,7 +36,7 @@
             this.LblWidth = new System.Windows.Forms.Label();
             this.NumDepth = new System.Windows.Forms.NumericUpDown();
             this.NumWidth = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.NumDrawers = new System.Windows.Forms.NumericUpDown();
             this.LblDrawers = new System.Windows.Forms.Label();
             this.LblSurfaceMaterial = new System.Windows.Forms.Label();
             this.CmbSurfaceMaterial = new System.Windows.Forms.ComboBox();
@@ -47,7 +47,7 @@
             this.DimensionBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumDepth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumWidth)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumDrawers)).BeginInit();
             this.SuspendLayout();
             // 
             // LblAddNewQuote
@@ -156,18 +156,18 @@
             0,
             0});
             // 
-            // numericUpDown1
+            // NumDrawers
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(468, 186);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.NumDrawers.Location = new System.Drawing.Point(468, 186);
+            this.NumDrawers.Maximum = new decimal(new int[] {
             7,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(40, 20);
-            this.numericUpDown1.TabIndex = 6;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.NumDrawers.Name = "NumDrawers";
+            this.NumDrawers.Size = new System.Drawing.Size(40, 20);
+            this.NumDrawers.TabIndex = 6;
+            this.NumDrawers.Value = new decimal(new int[] {
             5,
             0,
             0,
@@ -203,7 +203,6 @@
             this.CmbSurfaceMaterial.Name = "CmbSurfaceMaterial";
             this.CmbSurfaceMaterial.Size = new System.Drawing.Size(145, 21);
             this.CmbSurfaceMaterial.TabIndex = 9;
-            this.CmbSurfaceMaterial.SelectedIndexChanged += new System.EventHandler(this.CmbSurfaceMaterial_SelectedIndexChanged);
             // 
             // LblDelivery
             // 
@@ -262,7 +261,7 @@
             this.Controls.Add(this.CmbSurfaceMaterial);
             this.Controls.Add(this.LblSurfaceMaterial);
             this.Controls.Add(this.LblDrawers);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.NumDrawers);
             this.Controls.Add(this.DimensionBox);
             this.Controls.Add(this.TxtCustomerName);
             this.Controls.Add(this.LblCustomerName);
@@ -270,11 +269,12 @@
             this.Name = "AddQuote";
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddQuote_FormClosed);
+            this.Load += new System.EventHandler(this.AddQuote_Load);
             this.DimensionBox.ResumeLayout(false);
             this.DimensionBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumDepth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumWidth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumDrawers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,7 +290,7 @@
         private System.Windows.Forms.Label LblWidth;
         private System.Windows.Forms.NumericUpDown NumDepth;
         private System.Windows.Forms.NumericUpDown NumWidth;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown NumDrawers;
         private System.Windows.Forms.Label LblDrawers;
         private System.Windows.Forms.Label LblSurfaceMaterial;
         private System.Windows.Forms.ComboBox CmbSurfaceMaterial;
