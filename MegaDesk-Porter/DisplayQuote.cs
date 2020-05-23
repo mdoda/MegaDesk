@@ -12,20 +12,42 @@ namespace MegaDesk_Porter
 {
     public partial class DisplayQuote : Form
     {
+        private Form _mainMenu;
+
         public DisplayQuote()
         {
+        }
+
+        public DisplayQuote(Form mainMenu, DeskQuote deskquote)
+        {
             InitializeComponent();
+            
+            _mainMenu = mainMenu;
+
+            TxtCustomerName.Text = deskquote.CustomerName;
+            NumWidth.Value = deskquote.Desk.Width;
+            NumDepth.Value = deskquote.Desk.Depth;
+            NumDrawers.Value = deskquote.Desk.Drawers;
+            TxtSurfaceMaterial.Text = deskquote.Desk.DesktopMaterial.ToString();
+            TxtDelivery.Text = deskquote.Shipping.ToString();
+            TxtTotal.Text = deskquote.Total.ToString("c");
+            
+
         }
 
         private void DisplayQuote_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MainMenu reopen = new MainMenu();
-            reopen.Show();
+            _mainMenu.Show();
         }
 
         private void DisplayQuote_Load(object sender, EventArgs e)
         {
-            TxtCustomerName = AddQuote.ActiveForm.
+
+        }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

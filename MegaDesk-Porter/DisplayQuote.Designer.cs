@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.CmbDelivery = new System.Windows.Forms.ComboBox();
             this.LblDelivery = new System.Windows.Forms.Label();
-            this.CmbSurfaceMaterial = new System.Windows.Forms.ComboBox();
             this.LblSurfaceMaterial = new System.Windows.Forms.Label();
             this.LblDrawers = new System.Windows.Forms.Label();
             this.NumDrawers = new System.Windows.Forms.NumericUpDown();
@@ -43,29 +41,17 @@
             this.LblCustomerName = new System.Windows.Forms.Label();
             this.LblYourQuote = new System.Windows.Forms.Label();
             this.Grpbx = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.TxtTotal = new System.Windows.Forms.TextBox();
             this.BtnClose = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.TxtSurfaceMaterial = new System.Windows.Forms.TextBox();
+            this.TxtDelivery = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.NumDrawers)).BeginInit();
             this.DimensionBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumDepth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumWidth)).BeginInit();
             this.Grpbx.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // CmbDelivery
-            // 
-            this.CmbDelivery.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbDelivery.FormattingEnabled = true;
-            this.CmbDelivery.Items.AddRange(new object[] {
-            "3-Day Rush",
-            "5-Day Rush",
-            "7-Day Rush",
-            "No Rush (~14 days)"});
-            this.CmbDelivery.Location = new System.Drawing.Point(479, 271);
-            this.CmbDelivery.Name = "CmbDelivery";
-            this.CmbDelivery.Size = new System.Drawing.Size(145, 21);
-            this.CmbDelivery.TabIndex = 23;
             // 
             // LblDelivery
             // 
@@ -77,15 +63,6 @@
             this.LblDelivery.TabIndex = 22;
             this.LblDelivery.Text = "Delivery:";
             this.LblDelivery.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // CmbSurfaceMaterial
-            // 
-            this.CmbSurfaceMaterial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbSurfaceMaterial.FormattingEnabled = true;
-            this.CmbSurfaceMaterial.Location = new System.Drawing.Point(479, 244);
-            this.CmbSurfaceMaterial.Name = "CmbSurfaceMaterial";
-            this.CmbSurfaceMaterial.Size = new System.Drawing.Size(145, 21);
-            this.CmbSurfaceMaterial.TabIndex = 21;
             // 
             // LblSurfaceMaterial
             // 
@@ -111,6 +88,7 @@
             // 
             // NumDrawers
             // 
+            this.NumDrawers.Enabled = false;
             this.NumDrawers.Location = new System.Drawing.Point(479, 219);
             this.NumDrawers.Maximum = new decimal(new int[] {
             7,
@@ -164,6 +142,7 @@
             // 
             // NumDepth
             // 
+            this.NumDepth.Enabled = false;
             this.NumDepth.Location = new System.Drawing.Point(84, 56);
             this.NumDepth.Maximum = new decimal(new int[] {
             48,
@@ -247,6 +226,17 @@
             this.Grpbx.TabIndex = 24;
             this.Grpbx.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(23, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Total:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // TxtTotal
             // 
             this.TxtTotal.Enabled = false;
@@ -264,28 +254,34 @@
             this.BtnClose.TabIndex = 25;
             this.BtnClose.Text = "Close";
             this.BtnClose.UseVisualStyleBackColor = true;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
-            // label1
+            // TxtSurfaceMaterial
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 20);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Total:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TxtSurfaceMaterial.Location = new System.Drawing.Point(479, 245);
+            this.TxtSurfaceMaterial.Name = "TxtSurfaceMaterial";
+            this.TxtSurfaceMaterial.ReadOnly = true;
+            this.TxtSurfaceMaterial.Size = new System.Drawing.Size(130, 20);
+            this.TxtSurfaceMaterial.TabIndex = 26;
+            // 
+            // TxtDelivery
+            // 
+            this.TxtDelivery.Location = new System.Drawing.Point(479, 271);
+            this.TxtDelivery.Name = "TxtDelivery";
+            this.TxtDelivery.ReadOnly = true;
+            this.TxtDelivery.Size = new System.Drawing.Size(130, 20);
+            this.TxtDelivery.TabIndex = 27;
             // 
             // DisplayQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(706, 450);
+            this.Controls.Add(this.TxtDelivery);
+            this.Controls.Add(this.TxtSurfaceMaterial);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.Grpbx);
-            this.Controls.Add(this.CmbDelivery);
             this.Controls.Add(this.LblDelivery);
-            this.Controls.Add(this.CmbSurfaceMaterial);
             this.Controls.Add(this.LblSurfaceMaterial);
             this.Controls.Add(this.LblDrawers);
             this.Controls.Add(this.NumDrawers);
@@ -310,9 +306,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox CmbDelivery;
         private System.Windows.Forms.Label LblDelivery;
-        private System.Windows.Forms.ComboBox CmbSurfaceMaterial;
         private System.Windows.Forms.Label LblSurfaceMaterial;
         private System.Windows.Forms.Label LblDrawers;
         private System.Windows.Forms.NumericUpDown NumDrawers;
@@ -328,5 +322,7 @@
         private System.Windows.Forms.TextBox TxtTotal;
         private System.Windows.Forms.Button BtnClose;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TxtSurfaceMaterial;
+        private System.Windows.Forms.TextBox TxtDelivery;
     }
 }

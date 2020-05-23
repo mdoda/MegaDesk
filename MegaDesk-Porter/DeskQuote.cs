@@ -16,7 +16,7 @@ namespace MegaDesk_Porter
         Rush7Days,
         NoRush14Days
     }
-    class DeskQuote
+    public class DeskQuote
     {
         private int[,] _rushOrderPrices;
 
@@ -41,6 +41,8 @@ namespace MegaDesk_Porter
         public Desk Desk { get; set; }
 
         public Delivery Shipping { get; set; }
+
+        public decimal Total { get; set; }
 
         public decimal GetQuote()
         {
@@ -126,15 +128,18 @@ namespace MegaDesk_Porter
                     }
                     break;
 
-                    quotePrice = quotePrice + surfacePrice + drawerPrice + surfaceMaterialPrice + shippingPrice;
+                    
 
-                    return quotePrice;
+                    
             }
+            quotePrice = quotePrice + surfacePrice + drawerPrice + surfaceMaterialPrice + shippingPrice;
+
+            return quotePrice;
         }
         private void getRushOrderPrices()
         {
             _rushOrderPrices = new int[3, 3];
-            var pricesFile = @"rushOrderPrices.txt";
+            var pricesFile = @"_rushOrderPrices.txt";
 
             string[] prices = File.ReadAllLines(pricesFile);
             int i = 0, j = 0;

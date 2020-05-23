@@ -20,21 +20,21 @@ namespace MegaDesk_Porter
         private void BtnNewQuote_Click(object sender, EventArgs e)
         {
             this.Hide();
-            AddQuote form = new AddQuote();
+            AddQuote form = new AddQuote(this);
             form.Show();
         }
 
         private void BtnViewQuotes_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DisplayQuote form = new DisplayQuote();
+            ViewAllQuotes form = new ViewAllQuotes(this);
             form.Show();
         }
 
         private void BtnSearchQuotes_Click(object sender, EventArgs e)
         {
             this.Hide();
-            SearchQuotes form = new SearchQuotes();
+            SearchQuotes form = new SearchQuotes(this);
             form.Show();
         }
 

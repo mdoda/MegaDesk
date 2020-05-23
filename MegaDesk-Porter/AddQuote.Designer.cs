@@ -268,7 +268,6 @@
             this.Controls.Add(this.LblAddNewQuote);
             this.Name = "AddQuote";
             this.Text = "Form1";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddQuote_FormClosed);
             this.Load += new System.EventHandler(this.AddQuote_Load);
             this.DimensionBox.ResumeLayout(false);
             this.DimensionBox.PerformLayout();

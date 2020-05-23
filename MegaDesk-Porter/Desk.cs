@@ -33,6 +33,5 @@ namespace MegaDesk_Porter
 
         public DesktopMaterial DesktopMaterial { get; set; }
 
-        public decimal Shipping {get; set;}
     }
 }
