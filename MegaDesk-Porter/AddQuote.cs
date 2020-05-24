@@ -141,13 +141,17 @@ namespace MegaDesk_Porter
         }
         private void BtnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
-            
+            this.Close();   
         }
 
         private void AddQuote_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void AddQuote_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _mainMenu.Show();
         }
     }
 }
