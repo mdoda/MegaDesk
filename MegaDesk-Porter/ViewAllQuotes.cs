@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.IO
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,6 +20,8 @@ namespace MegaDesk_Porter
             InitializeComponent();
 
             _mainMenu = mainMenu;
+
+            loadGrid();
         }
 
         private void ViewAllQuotes_FormClosed(object sender, FormClosedEventArgs e)

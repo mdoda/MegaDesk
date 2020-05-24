@@ -30,7 +30,9 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.com1SurfaceMaterial = new System.Windows.Forms.ComboBox();
+            this.CmbDelivery = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,20 +54,40 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Surface Material";
             // 
-            // comboBox1
+            // com1SurfaceMaterial
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(182, 64);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(183, 24);
-            this.comboBox1.TabIndex = 2;
+            this.com1SurfaceMaterial.FormattingEnabled = true;
+            this.com1SurfaceMaterial.Location = new System.Drawing.Point(182, 64);
+            this.com1SurfaceMaterial.Name = "com1SurfaceMaterial";
+            this.com1SurfaceMaterial.Size = new System.Drawing.Size(183, 24);
+            this.com1SurfaceMaterial.TabIndex = 2;
+            this.com1SurfaceMaterial.SelectedIndexChanged += new System.EventHandler(this.com1SurfaceMaterial_SelectedIndexChanged);
+            // 
+            // CmbDelivery
+            // 
+            this.CmbDelivery.FormattingEnabled = true;
+            this.CmbDelivery.Location = new System.Drawing.Point(617, 64);
+            this.CmbDelivery.Name = "CmbDelivery";
+            this.CmbDelivery.Size = new System.Drawing.Size(183, 24);
+            this.CmbDelivery.TabIndex = 3;
+            this.CmbDelivery.SelectedIndexChanged += new System.EventHandler(this.CmbDelivery_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(490, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(121, 23);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Delivery Type";
             // 
             // SearchQuotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.CmbDelivery);
+            this.Controls.Add(this.com1SurfaceMaterial);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -81,6 +103,8 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox com1SurfaceMaterial;
+        private System.Windows.Forms.ComboBox CmbDelivery;
+        private System.Windows.Forms.Label label2;
     }
 }

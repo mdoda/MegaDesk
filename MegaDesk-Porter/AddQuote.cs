@@ -29,10 +29,12 @@ namespace MegaDesk_Porter
                 .Cast<Delivery>()
                 .ToList();
 
-
-
             CmbSurfaceMaterial.DataSource = materials;
+            CmbSurfaceMaterial.SelectedIndex = -1;
+
+            
             CmbDelivery.DataSource = rushorder;
+            CmbDelivery.SelectedIndex = -1;
 
             _mainMenu = mainMenu;
         }
