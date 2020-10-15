@@ -41,115 +41,31 @@ namespace MegaDesk_Porter
 
         public void BtnGetQuote_Click(object sender, EventArgs e)
         {
-            String DeliveryTest = CmbDelivery.Text;
-            String NameTest = TxtCustomerName.Text;
 
-            if (DeliveryTest == "")
+            var desk = new Desk
             {
-                MessageBox.Show("Please select a shipping option");
-                
-            }
+                Depth = NumDepth.Value,
+                Width = NumWidth.Value,
+                Drawers = (int)NumDrawers.Value,
+                DesktopMaterial = (DesktopMaterial)CmbSurfaceMaterial.SelectedValue
 
-            else if (NameTest == "") {
-                    MessageBox.Show("Please enter something in the Customer Name field");
-                }
-            
-            else {
+            };
 
-                var desk = new Desk
-                {
-                    Depth = NumDepth.Value,
-                    Width = NumWidth.Value,
-                    Drawers = (int)NumDrawers.Value,
-                    DesktopMaterial = (DesktopMaterial)CmbSurfaceMaterial.SelectedValue
-
-                };
-
-                DeskQuote deskQuote = new DeskQuote
-                {
-                    Desk = desk,
-                    CustomerName = TxtCustomerName.Text,
-                    QuoteDate = DateTime.Now,
-                    Shipping = (Delivery)CmbDelivery.SelectedValue
-                    
-                };
-
-                deskQuote.Total = deskQuote.GetQuote();
-
-
-                AddQuoteToFile(deskQuote);
-
-                //Serialize deskQuote into a string
-
-                //Write deskQuote to JSON file
-
-                var displayQuote = new DisplayQuote(_mainMenu,deskQuote);
-
-                
-                displayQuote.Show();
-                
-
-                this.Close();
-                
-                
-            }
-            
-
-            try
+            DeskQuote deskQuote = new DeskQuote
             {
-                String nameTest = TxtCustomerName.ToString();
-                
-            }
-            catch (Exception x)
-            {
-                Console.WriteLine(x.Message);
-            }
+                Desk = desk,
+                CustomerName = TxtCustomerName.Text,
+                QuoteDate = DateTime.Now,
+                Shipping = (Delivery)CmbDelivery.SelectedValue
 
-    }
-        private void AddQuoteToFile(DeskQuote deskQuote)
-        {
-            var quotesFile = @"quotes.json";
-            List<DeskQuote> deskquotes = new List<DeskQuote>();
-
-            //Read already existing quotes
-            if (File.Exists(quotesFile))
-            {
-                using (StreamReader reader = new StreamReader(quotesFile))
-                {
-                    string quotes = reader.ReadToEnd();
-
-                    if (quotes.Length > 0)
-                    {
-                        //Deserialize quotes
-                        deskquotes = JsonConvert.DeserializeObject<List<DeskQuote>>(quotes);
-                    }
-                }
-            }
-            //Add to file
-            deskquotes.Add(deskQuote);
-
-            //Save to file
-            SaveQuotes(deskquotes);
+            };
         }
 
-        private void SaveQuotes(List<DeskQuote> quotes)
-        {
-            var quotesFile = @"quotes.json";
-
-            //Reserialize (quotes)
-            var serializedQuotes = JsonConvert.SerializeObject(quotes);
-
-            File.WriteAllText(quotesFile, serializedQuotes);
-        }
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             this.Close();   
         }
 
-        private void AddQuote_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void AddQuote_FormClosed(object sender, FormClosedEventArgs e)
         {
